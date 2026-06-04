@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Check, ChevronRight, Phone, Mail, MapPin, Calculator, FileText, Shield, Users, Star, ArrowRight } from "lucide-react"
+import { Check, ChevronRight, Phone, MapPin, Calculator, FileText, Shield, Users, Star, ArrowRight } from "lucide-react"
+import Link from "next/link"
 
 // Design 1: Clean & Professional (Green/White)
 function Design1() {
@@ -10,18 +11,20 @@ function Design1() {
     <div className="min-h-screen bg-white">
       {/* Nav */}
       <nav className="flex items-center justify-between px-8 py-4 border-b border-emerald-100">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center">
             <span className="text-white font-bold text-lg">A</span>
           </div>
           <span className="font-semibold text-xl text-emerald-900">ALOE</span>
-        </div>
+        </Link>
         <div className="hidden md:flex items-center gap-8 text-emerald-800">
-          <a href="#" className="hover:text-emerald-600 transition">Services</a>
-          <a href="#" className="hover:text-emerald-600 transition">About</a>
-          <a href="#" className="hover:text-emerald-600 transition">Contact</a>
+          <Link href="/" className="text-emerald-600 font-medium">Home</Link>
+          <Link href="/about" className="hover:text-emerald-600 transition">About</Link>
+          <Link href="/contact" className="hover:text-emerald-600 transition">Contact</Link>
         </div>
-        <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Get a Quote</Button>
+        <Link href="/contact">
+          <Button className="bg-emerald-600 hover:bg-emerald-700 text-white">Get a Quote</Button>
+        </Link>
       </nav>
 
       {/* Hero */}
@@ -96,17 +99,19 @@ function Design2() {
     <div className="min-h-screen bg-slate-950">
       {/* Nav */}
       <nav className="flex items-center justify-between px-8 py-5 border-b border-slate-800">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3">
           <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-lg" />
           <span className="font-semibold text-xl text-white tracking-tight">ALOE</span>
           <span className="text-slate-500 text-sm">Accounting & Tax</span>
-        </div>
+        </Link>
         <div className="hidden md:flex items-center gap-8 text-slate-400">
-          <a href="#" className="hover:text-white transition">Services</a>
-          <a href="#" className="hover:text-white transition">About</a>
-          <a href="#" className="hover:text-white transition">Testimonials</a>
+          <Link href="/" className="text-teal-400 font-medium">Home</Link>
+          <Link href="/about" className="hover:text-white transition">About</Link>
+          <Link href="/contact" className="hover:text-white transition">Contact</Link>
         </div>
-        <Button className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-medium">Contact Us</Button>
+        <Link href="/contact">
+          <Button className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-medium">Contact Us</Button>
+        </Link>
       </nav>
 
       {/* Hero */}
@@ -161,21 +166,23 @@ function Design3() {
     <div className="min-h-screen bg-stone-50">
       {/* Nav */}
       <nav className="flex items-center justify-between px-8 py-4 max-w-6xl mx-auto">
-        <div className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2">
           <svg className="w-8 h-8 text-green-700" viewBox="0 0 32 32" fill="currentColor">
             <path d="M16 4C16 4 8 8 8 16C8 24 16 28 16 28C16 28 24 24 24 16C24 8 16 4 16 4Z" opacity="0.3"/>
             <path d="M16 6C16 6 10 9 10 16C10 23 16 26 16 26C16 26 22 23 22 16C22 9 16 6 16 6Z"/>
           </svg>
           <span className="font-semibold text-xl text-stone-800">ALOE</span>
-        </div>
+        </Link>
         <div className="hidden md:flex items-center gap-8 text-stone-600">
-          <a href="#" className="hover:text-green-700 transition">Services</a>
-          <a href="#" className="hover:text-green-700 transition">About Khushpreet</a>
-          <a href="#" className="hover:text-green-700 transition">Reviews</a>
+          <Link href="/" className="text-green-700 font-medium">Home</Link>
+          <Link href="/about" className="hover:text-green-700 transition">About</Link>
+          <Link href="/contact" className="hover:text-green-700 transition">Contact</Link>
         </div>
-        <Button className="bg-green-700 hover:bg-green-800 text-white rounded-full px-6">
-          Book a Call
-        </Button>
+        <Link href="/contact">
+          <Button className="bg-green-700 hover:bg-green-800 text-white rounded-full px-6">
+            Book a Call
+          </Button>
+        </Link>
       </nav>
 
       {/* Hero */}
