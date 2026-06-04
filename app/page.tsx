@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Check, ChevronRight, Phone, MapPin, Calculator, FileText, Shield, Users, Star, ArrowRight } from "lucide-react"
+import { Check, ChevronRight, Phone, MapPin, Calculator, FileText, Shield, Users, Star, ArrowRight, Mail, Clock, Building, Briefcase, Receipt, PiggyBank } from "lucide-react"
 import Link from "next/link"
 
 // Design 1: Clean & Professional (Green/White)
@@ -44,9 +44,11 @@ function Design1() {
               empower your business growth. Focus on what you love — we&apos;ll handle the numbers.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
-                Schedule Consultation <ChevronRight className="w-4 h-4" />
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2">
+                  Schedule Consultation <ChevronRight className="w-4 h-4" />
+                </Button>
+              </Link>
               <Button size="lg" variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-50">
                 Our Services
               </Button>
@@ -89,6 +91,153 @@ function Design1() {
           </div>
         </div>
       </section>
+
+      {/* Services */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-emerald-950 mb-4">Our Services</h2>
+          <p className="text-emerald-700/70 max-w-2xl mx-auto">Comprehensive accounting solutions tailored to help your business thrive</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { icon: Calculator, title: "Accounting & Bookkeeping", desc: "Full-cycle bookkeeping, monthly financial statements, year-end entries, and account reconciliations." },
+            { icon: Receipt, title: "Corporate Tax", desc: "Tax planning, corporate structuring, T2 returns, HST filing, and strategic tax optimization." },
+            { icon: Users, title: "Payroll Services", desc: "Complete payroll processing, T4/T5 preparation, ROE filing, and CRA remittances." },
+            { icon: Shield, title: "Assurance Services", desc: "Review engagements, compilation engagements, and specialized audit services." },
+            { icon: FileText, title: "Personal Tax", desc: "T1 personal returns, rental income reporting, self-employment income, and tax credits optimization." },
+            { icon: Briefcase, title: "Business Advisory", desc: "Business incorporation, financial planning, cash flow management, and growth strategies." },
+          ].map((service) => (
+            <div key={service.title} className="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-6 hover:shadow-lg hover:border-emerald-200 transition">
+              <div className="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center mb-4">
+                <service.icon className="w-6 h-6 text-white" />
+              </div>
+              <h3 className="text-lg font-semibold text-emerald-900 mb-2">{service.title}</h3>
+              <p className="text-emerald-700/70 text-sm leading-relaxed">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-emerald-950 text-white px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">Why Choose ALOE?</h2>
+              <p className="text-emerald-200 mb-8 leading-relaxed">
+                We believe in building lasting relationships with our clients through quality service, 
+                integrity, and collaborative solutions that drive real results.
+              </p>
+              <div className="space-y-4">
+                {[
+                  "Personalized attention for every client",
+                  "Deep expertise in small business accounting",
+                  "Proactive tax planning strategies",
+                  "Quick response times and clear communication",
+                  "Competitive and transparent pricing",
+                ].map((item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
+                      <Check className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-emerald-100">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="bg-emerald-900 rounded-3xl p-8">
+              <h3 className="text-xl font-semibold mb-6">Industries We Serve</h3>
+              <div className="grid grid-cols-2 gap-4">
+                {["Retail & E-commerce", "Professional Services", "Real Estate", "Healthcare", "Construction", "Restaurants"].map((industry) => (
+                  <div key={industry} className="bg-emerald-800/50 rounded-xl px-4 py-3 text-sm text-emerald-100">
+                    {industry}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-emerald-950 mb-4">What Our Clients Say</h2>
+          <p className="text-emerald-700/70">Real feedback from real businesses we&apos;ve helped grow</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { name: "Haley N.", text: "Khushpreet made my first year filing taxes as a small business owner seamless. Highly recommend!" },
+            { name: "Mandeep S.", text: "ALOE helped us restructure our business and saved us thousands in taxes. Professional and knowledgeable team." },
+            { name: "Priya K.", text: "Finally found an accountant who actually takes time to explain things. Their payroll service is flawless." },
+          ].map((testimonial) => (
+            <div key={testimonial.name} className="bg-white border border-emerald-100 rounded-2xl p-6 shadow-sm">
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map((i) => (
+                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <p className="text-emerald-800/80 mb-4 leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
+              <p className="font-medium text-emerald-900">— {testimonial.name}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-8 py-16 bg-emerald-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-emerald-950 mb-4">Ready to Get Started?</h2>
+          <p className="text-emerald-700/70 mb-8">Schedule a free consultation and let&apos;s discuss how we can help your business thrive.</p>
+          <Link href="/contact">
+            <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white gap-2 px-8">
+              Book Your Free Consultation <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-emerald-950 text-emerald-200 px-8 py-12">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-full bg-emerald-600 flex items-center justify-center">
+                <span className="text-white font-bold">A</span>
+              </div>
+              <span className="font-semibold text-white">ALOE</span>
+            </div>
+            <p className="text-sm text-emerald-300/70">Your full service Chartered Professional Accountant Firm in Brampton.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
+              <li>Bookkeeping</li>
+              <li>Tax Services</li>
+              <li>Payroll</li>
+              <li>Assurance</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4" /> Brampton, Ontario</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4" /> info@aloeaccounting.com</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4" /> (905) 555-ALOE</li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-emerald-800 text-center text-sm text-emerald-400">
+          © 2024 ALOE Accounting & Tax. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }
@@ -120,7 +269,7 @@ function Design2() {
           <Star className="w-4 h-4 text-teal-400" />
           Trusted by 500+ businesses across the GTA
         </div>
-        <h1 className="text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto">
+        <h1 className="text-6xl font-bold text-white leading-tight mb-6 max-w-4xl mx-auto text-balance">
           Your finances deserve{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">
             expert care
@@ -131,31 +280,192 @@ function Design2() {
           solutions for entrepreneurs and small businesses.
         </p>
         <div className="flex justify-center gap-4 mb-16">
-          <Button size="lg" className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-medium gap-2 px-8">
-            Get Started <ArrowRight className="w-4 h-4" />
-          </Button>
+          <Link href="/contact">
+            <Button size="lg" className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-medium gap-2 px-8">
+              Get Started <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
           <Button size="lg" variant="outline" className="border-slate-700 text-white hover:bg-slate-800">
             View Services
           </Button>
         </div>
+      </section>
 
-        {/* Service Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
+      {/* Stats */}
+      <section className="px-8 pb-16">
+        <div className="max-w-4xl mx-auto grid grid-cols-4 gap-4">
           {[
-            { title: "Accounting & Payroll", desc: "Full-cycle bookkeeping, payroll processing, year-end entries" },
-            { title: "Tax Services", desc: "Corporate structuring, tax returns, T4/T5 filing" },
-            { title: "Assurance", desc: "Specialized audits, financial statement reviews" },
-          ].map((service) => (
-            <div key={service.title} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-left hover:border-teal-500/50 transition group">
-              <div className="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teal-500/20 transition">
-                <Calculator className="w-6 h-6 text-teal-400" />
-              </div>
-              <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
-              <p className="text-slate-400 text-sm">{service.desc}</p>
+            { value: "500+", label: "Clients" },
+            { value: "15+", label: "Years" },
+            { value: "$2M+", label: "Tax Saved" },
+            { value: "100%", label: "Satisfaction" },
+          ].map((stat) => (
+            <div key={stat.label} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center">
+              <div className="text-3xl font-bold text-teal-400 mb-1">{stat.value}</div>
+              <div className="text-sm text-slate-500">{stat.label}</div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Services */}
+      <section className="px-8 py-20 border-t border-slate-800">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">Comprehensive Services</h2>
+            <p className="text-slate-400 max-w-2xl mx-auto">Everything you need to keep your finances in order and your business growing</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { icon: Calculator, title: "Accounting & Bookkeeping", desc: "Full-cycle bookkeeping, monthly financial statements, year-end entries, and account reconciliations.", features: ["Monthly statements", "Bank reconciliation", "Year-end entries"] },
+              { icon: Receipt, title: "Tax Services", desc: "Strategic tax planning, corporate structuring, T2 returns, HST filing, and optimization.", features: ["Corporate tax", "Personal tax", "HST filing"] },
+              { icon: Users, title: "Payroll Solutions", desc: "Complete payroll processing, T4/T5 preparation, ROE filing, and CRA remittances.", features: ["Payroll processing", "T4/T5 prep", "CRA remittances"] },
+              { icon: Shield, title: "Assurance Services", desc: "Review engagements, compilation engagements, and specialized audit services.", features: ["Review engagements", "Compilations", "Audit services"] },
+              { icon: Building, title: "Business Advisory", desc: "Business incorporation, financial planning, cash flow management, and growth strategies.", features: ["Incorporation", "Financial planning", "Growth strategy"] },
+              { icon: PiggyBank, title: "Financial Planning", desc: "Retirement planning, investment strategies, and wealth management guidance.", features: ["Retirement planning", "Investments", "Wealth management"] },
+            ].map((service) => (
+              <div key={service.title} className="bg-slate-900 border border-slate-800 rounded-2xl p-6 hover:border-teal-500/50 transition group">
+                <div className="w-12 h-12 bg-teal-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-teal-500/20 transition">
+                  <service.icon className="w-6 h-6 text-teal-400" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">{service.title}</h3>
+                <p className="text-slate-400 text-sm mb-4">{service.desc}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-sm text-slate-500">
+                      <Check className="w-4 h-4 text-teal-500" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="px-8 py-20 bg-slate-900/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-6">Why businesses choose ALOE</h2>
+              <p className="text-slate-400 mb-8 leading-relaxed">
+                We combine deep expertise with personalized service to deliver accounting solutions 
+                that actually move the needle for your business.
+              </p>
+              <div className="space-y-4">
+                {[
+                  { title: "Dedicated CPA Team", desc: "Work directly with experienced professionals, not junior staff" },
+                  { title: "Proactive Tax Strategy", desc: "We find savings before tax season, not after" },
+                  { title: "Industry Expertise", desc: "Specialized knowledge in retail, healthcare, real estate & more" },
+                  { title: "Clear Communication", desc: "No jargon, just straightforward advice you can act on" },
+                ].map((item) => (
+                  <div key={item.title} className="flex gap-4">
+                    <div className="w-10 h-10 bg-teal-500/10 rounded-lg flex items-center justify-center shrink-0">
+                      <Check className="w-5 h-5 text-teal-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-white mb-1">{item.title}</h4>
+                      <p className="text-sm text-slate-500">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {["Retail & E-commerce", "Professional Services", "Real Estate", "Healthcare", "Construction", "Restaurants", "Tech Startups", "Non-Profits"].map((industry) => (
+                <div key={industry} className="bg-slate-800/50 border border-slate-700 rounded-xl px-4 py-4 text-center text-sm text-slate-300 hover:border-teal-500/50 transition">
+                  {industry}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-4">Client Success Stories</h2>
+            <p className="text-slate-400">See what business owners are saying about working with us</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { name: "Haley N.", role: "Small Business Owner", text: "Khushpreet made my first year filing taxes as a small business owner seamless. The attention to detail and proactive advice saved me thousands." },
+              { name: "Mandeep S.", role: "Restaurant Owner", text: "ALOE helped us restructure our business and optimized our tax strategy. Their industry knowledge is unmatched." },
+              { name: "Priya K.", role: "Healthcare Professional", text: "Finally found an accountant who actually takes time to explain things. Their payroll service runs flawlessly month after month." },
+            ].map((testimonial) => (
+              <div key={testimonial.name} className="bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <div className="flex gap-1 mb-4">
+                  {[1,2,3,4,5].map((i) => (
+                    <Star key={i} className="w-4 h-4 fill-teal-400 text-teal-400" />
+                  ))}
+                </div>
+                <p className="text-slate-300 mb-6 leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
+                <div>
+                  <p className="font-medium text-white">{testimonial.name}</p>
+                  <p className="text-sm text-slate-500">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-8 py-16">
+        <div className="max-w-4xl mx-auto bg-gradient-to-r from-teal-500/20 to-emerald-500/20 border border-teal-500/30 rounded-3xl p-12 text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to optimize your finances?</h2>
+          <p className="text-slate-300 mb-8 max-w-xl mx-auto">Schedule a free consultation and discover how ALOE can help your business save money and grow smarter.</p>
+          <Link href="/contact">
+            <Button size="lg" className="bg-teal-500 hover:bg-teal-400 text-slate-950 font-medium gap-2 px-8">
+              Book Free Consultation <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-slate-800 px-8 py-12">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 bg-gradient-to-br from-teal-400 to-emerald-500 rounded-lg" />
+              <span className="font-semibold text-white">ALOE</span>
+            </div>
+            <p className="text-sm text-slate-500">Your full service Chartered Professional Accountant Firm in Brampton, Ontario.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Services</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li className="hover:text-white transition cursor-pointer">Bookkeeping</li>
+              <li className="hover:text-white transition cursor-pointer">Tax Services</li>
+              <li className="hover:text-white transition cursor-pointer">Payroll</li>
+              <li className="hover:text-white transition cursor-pointer">Assurance</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <ul className="space-y-2 text-sm text-slate-400">
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-teal-500" /> Brampton, Ontario</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-teal-500" /> info@aloeaccounting.com</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-teal-500" /> (905) 555-ALOE</li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
+          © 2024 ALOE Accounting & Tax. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }
@@ -186,11 +496,11 @@ function Design3() {
       </nav>
 
       {/* Hero */}
-      <section className="px-8 pt-16 pb-24 max-w-6xl mx-auto">
+      <section className="px-8 pt-16 pb-20 max-w-6xl mx-auto">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <p className="text-green-700 font-medium mb-4">Brampton&apos;s Trusted CPA</p>
-            <h1 className="text-5xl font-bold text-stone-900 leading-tight mb-6">
+            <h1 className="text-5xl font-bold text-stone-900 leading-tight mb-6 text-balance">
               We handle your books, so you can grow your business
             </h1>
             <p className="text-lg text-stone-600 mb-8 leading-relaxed">
@@ -198,9 +508,11 @@ function Design3() {
               From retail to professional services, we&apos;ve got you covered.
             </p>
             <div className="flex flex-wrap gap-4 mb-8">
-              <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white rounded-full gap-2 px-8">
-                Get Your Free Quote <ChevronRight className="w-4 h-4" />
-              </Button>
+              <Link href="/contact">
+                <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white rounded-full gap-2 px-8">
+                  Get Your Free Quote <ChevronRight className="w-4 h-4" />
+                </Button>
+              </Link>
             </div>
             <div className="flex items-center gap-6 text-sm text-stone-500">
               <div className="flex items-center gap-2">
@@ -234,17 +546,191 @@ function Design3() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Values */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {["Quality", "Integrity", "Collaboration", "Efficiency"].map((value) => (
-            <div key={value} className="bg-white rounded-2xl p-6 text-center shadow-sm">
-              <Check className="w-8 h-8 text-green-600 mx-auto mb-3" />
-              <p className="font-medium text-stone-800">{value}</p>
+      {/* Values */}
+      <section className="px-8 pb-20 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {[
+            { icon: Shield, value: "Quality" },
+            { icon: Users, value: "Integrity" },
+            { icon: Briefcase, value: "Collaboration" },
+            { icon: Clock, value: "Efficiency" },
+          ].map((item) => (
+            <div key={item.value} className="bg-white rounded-2xl p-6 text-center shadow-sm hover:shadow-md transition">
+              <item.icon className="w-8 h-8 text-green-600 mx-auto mb-3" />
+              <p className="font-medium text-stone-800">{item.value}</p>
             </div>
           ))}
         </div>
       </section>
+
+      {/* Services */}
+      <section className="bg-white px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">How We Can Help</h2>
+            <p className="text-stone-600 max-w-2xl mx-auto">Comprehensive accounting solutions designed with your success in mind</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Calculator, title: "Bookkeeping", desc: "Stay organized with full-cycle bookkeeping, monthly statements, and year-end entries. We keep your books clean so you can focus on business." },
+              { icon: Receipt, title: "Tax Services", desc: "From corporate tax planning to personal returns, we optimize your tax strategy and ensure compliance with all CRA requirements." },
+              { icon: Users, title: "Payroll", desc: "Complete payroll processing including T4/T5 prep, ROE filing, and CRA remittances. Your team gets paid on time, every time." },
+              { icon: Shield, title: "Assurance", desc: "Professional review and compilation engagements, audit services, and financial statement preparation you can trust." },
+              { icon: Briefcase, title: "Business Advisory", desc: "From incorporation to growth strategy, we provide guidance to help your business reach its full potential." },
+              { icon: FileText, title: "Personal Tax", desc: "Maximize your refund with expert T1 preparation, rental income reporting, and tax credit optimization." },
+            ].map((service) => (
+              <div key={service.title} className="group">
+                <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-green-700 transition">
+                  <service.icon className="w-7 h-7 text-green-700 group-hover:text-white transition" />
+                </div>
+                <h3 className="text-lg font-semibold text-stone-900 mb-2">{service.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{service.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* About Preview */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="bg-green-700 rounded-3xl p-10 text-white">
+            <h3 className="text-2xl font-bold mb-4">Meet Khushpreet Maan, CPA</h3>
+            <p className="text-green-100 mb-6 leading-relaxed">
+              With over 15 years of experience in public accounting, Khushpreet founded ALOE with a 
+              simple mission: provide personalized, high-quality accounting services to help small 
+              businesses thrive.
+            </p>
+            <Link href="/about">
+              <Button variant="outline" className="border-white text-white hover:bg-white hover:text-green-700 rounded-full">
+                Learn More About Us
+              </Button>
+            </Link>
+          </div>
+          <div>
+            <h2 className="text-3xl font-bold text-stone-900 mb-6">Why Choose ALOE?</h2>
+            <div className="space-y-4">
+              {[
+                "Personalized service tailored to your business",
+                "Proactive tax planning that saves you money",
+                "Clear, jargon-free communication",
+                "Quick response times and availability",
+                "Deep expertise across multiple industries",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                    <Check className="w-4 h-4 text-green-700" />
+                  </div>
+                  <span className="text-stone-700">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries */}
+      <section className="bg-stone-100 px-8 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-stone-900 mb-4">Industries We Serve</h2>
+            <p className="text-stone-600">Specialized knowledge to meet your unique needs</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["Retail & E-commerce", "Professional Services", "Real Estate", "Healthcare", "Construction", "Restaurants", "Tech Startups", "Non-Profits"].map((industry) => (
+              <div key={industry} className="bg-white rounded-xl px-6 py-4 text-center text-stone-700 shadow-sm hover:shadow-md transition">
+                {industry}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="px-8 py-20 max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-stone-900 mb-4">Happy Clients</h2>
+          <p className="text-stone-600">Real feedback from businesses we&apos;ve helped grow</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { name: "Haley N.", role: "Small Business Owner", text: "Khushpreet made my first year filing taxes as a small business owner seamless. The attention to detail and proactive advice saved me thousands." },
+            { name: "Mandeep S.", role: "Restaurant Owner", text: "ALOE helped us restructure our business and optimized our tax strategy. Their industry knowledge is unmatched." },
+            { name: "Priya K.", role: "Healthcare Professional", text: "Finally found an accountant who actually takes time to explain things. Their payroll service runs flawlessly month after month." },
+          ].map((testimonial) => (
+            <div key={testimonial.name} className="bg-white rounded-2xl p-6 shadow-sm">
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map((i) => (
+                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                ))}
+              </div>
+              <p className="text-stone-600 mb-6 leading-relaxed">&ldquo;{testimonial.text}&rdquo;</p>
+              <div>
+                <p className="font-medium text-stone-900">{testimonial.name}</p>
+                <p className="text-sm text-stone-500">{testimonial.role}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="px-8 py-16 bg-green-700">
+        <div className="max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-3xl font-bold mb-4">Ready to simplify your finances?</h2>
+          <p className="text-green-100 mb-8 max-w-xl mx-auto">Book a free consultation and let&apos;s discuss how ALOE can help your business grow.</p>
+          <Link href="/contact">
+            <Button size="lg" className="bg-white text-green-700 hover:bg-green-50 rounded-full gap-2 px-8">
+              Book Your Free Consultation <ArrowRight className="w-4 h-4" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-stone-900 text-stone-300 px-8 py-12">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-8">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <svg className="w-8 h-8 text-green-500" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 4C16 4 8 8 8 16C8 24 16 28 16 28C16 28 24 24 24 16C24 8 16 4 16 4Z" opacity="0.3"/>
+                <path d="M16 6C16 6 10 9 10 16C10 23 16 26 16 26C16 26 22 23 22 16C22 9 16 6 16 6Z"/>
+              </svg>
+              <span className="font-semibold text-white">ALOE</span>
+            </div>
+            <p className="text-sm text-stone-400">Your full service Chartered Professional Accountant Firm in Brampton, Ontario.</p>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Services</h4>
+            <ul className="space-y-2 text-sm text-stone-400">
+              <li className="hover:text-white transition cursor-pointer">Bookkeeping</li>
+              <li className="hover:text-white transition cursor-pointer">Tax Services</li>
+              <li className="hover:text-white transition cursor-pointer">Payroll</li>
+              <li className="hover:text-white transition cursor-pointer">Assurance</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Company</h4>
+            <ul className="space-y-2 text-sm text-stone-400">
+              <li><Link href="/about" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold text-white mb-4">Contact</h4>
+            <ul className="space-y-2 text-sm text-stone-400">
+              <li className="flex items-center gap-2"><MapPin className="w-4 h-4 text-green-500" /> Brampton, Ontario</li>
+              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-green-500" /> info@aloeaccounting.com</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-green-500" /> (905) 555-ALOE</li>
+            </ul>
+          </div>
+        </div>
+        <div className="max-w-6xl mx-auto mt-8 pt-8 border-t border-stone-800 text-center text-sm text-stone-500">
+          © 2024 ALOE Accounting & Tax. All rights reserved.
+        </div>
+      </footer>
     </div>
   )
 }
