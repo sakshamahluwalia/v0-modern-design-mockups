@@ -10,8 +10,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'ALOE Accounting & Tax | Brampton CPA',
+  description: 'Your full service Chartered Professional Accountant Firm in Brampton, Ontario',
   generator: 'v0.app',
   icons: {
     icon: [
