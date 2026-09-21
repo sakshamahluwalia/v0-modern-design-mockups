@@ -12,8 +12,10 @@
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.2",
+    "@tabler/icons-react": "^3.47.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
+    "motion": "^13.4.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.6.0"

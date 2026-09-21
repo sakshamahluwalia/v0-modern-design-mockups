@@ -53,8 +53,19 @@ header pattern the stub gives you).
 Do NOT hand-redo anything the script already did (meta/sampleConfig wiring, `'use client'`,
 `Home()`, desktop-nav removal) **unless Mode B warned it skipped that step.** Focus on:
 
-- **Design quality** — visually distinct from existing templates in that businessType (never a
-  recolor). For Mode A, this is the whole design; for Mode B, refine as needed.
+- **Design quality — structurally distinct + one wow moment.** Not just a new palette/font on
+  the same skeleton (that reads as one site recolored, and is a failure). Read the
+  "Distinctiveness & the wow factor" section of `v0-template-prompt.md`, look at the templates
+  already in this businessType, and make yours differ on **≥4 axes**: navigation pattern
+  (top bar / sidebar / floating pill / editorial masthead), hero archetype (split / full-bleed
+  image / type-only / bento / split-screen form / kinetic type / magazine cover), service
+  layout (cards / price-list / numbered list / horizontal scroll / icon tiles / feature rows),
+  section rhythm, and art direction. Give it **one signature element** that feels of-the-business
+  (e.g. a before/after slider, a timetable, a printed price-list, animated count-up stats, a
+  sticky caption rail). Self-check: *recolored to match a sibling, would they look like the
+  same site?* If yes, change the structure. Also vary the connective tissue (header, section
+  intros, contact block, footer) — don't copy it verbatim between templates. For Mode A this is
+  the whole design; for Mode B, push past the export's default layout, don't just restyle it.
 - **Fix any Mode-B warnings** — e.g. it couldn't find a desktop `<nav>` (apply the house-style
   header by hand: brand · phone · one CTA, no desktop center links, mobile hamburger keeps the
   list); or shadcn named-import mismatches after the path rewrite (`Accordion` → this repo's
